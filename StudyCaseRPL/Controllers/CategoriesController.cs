@@ -43,7 +43,7 @@ namespace StudyCaseRPL.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ViewBag.Error = ex.Message;
                 return View();
@@ -53,18 +53,30 @@ namespace StudyCaseRPL.Controllers
         // GET: Categories/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            CategoriesDAL categoriesDAL = new CategoriesDAL();
+            var model = categoriesDAL.GetById(id);
+
+            return View(model);
         }
 
         // POST: Categories/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Category category)
         {
             try
             {
-                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    CategoriesDAL categoriesDAL = new CategoriesDAL();
+                    categoriesDAL.Update(category);
 
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View();
+                }
+                
             }
             catch
             {
