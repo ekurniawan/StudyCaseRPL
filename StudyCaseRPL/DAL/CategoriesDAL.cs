@@ -75,5 +75,24 @@ namespace StudyCaseRPL.DAL
             }
         }
 
+
+        public void Delete(int id)
+        {
+            var result = GetById(id);
+                
+            if(result!=null)
+            {
+                try
+                {
+                    db.Categories.Remove(result);
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
+
     }
 }
