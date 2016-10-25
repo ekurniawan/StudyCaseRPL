@@ -5,7 +5,17 @@
 }
 
 <h2>List Category</h2>
+<br /><br />
 
+
+@using (Html.BeginForm("SearchByNama", "Categories", FormMethod.Post))
+        {
+    <label for="CategoryName">Masukan Nama Kategori:</label>        
+    <input type="text" name="CategoryName" />
+    <input type="submit" value="Search" class="btn btn-primary btn-sm" />
+}
+
+<br />
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
