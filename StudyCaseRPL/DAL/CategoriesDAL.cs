@@ -53,5 +53,27 @@ namespace StudyCaseRPL.DAL
             }
         }
 
+
+        public void Update(Category category)
+        {
+            var result = GetById(category.CategoryID);
+            if(result!=null)
+            {
+                result.CategoryName = category.CategoryName;
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+            else
+            {
+                throw new Exception("Data tidak ditemukan !");
+            }
+        }
+
     }
 }
