@@ -76,9 +76,9 @@ namespace StudyCaseRPL.DAL
         }
 
 
-        public void Delete(int id)
+        public void Delete(Category category)
         {
-            var result = GetById(id);
+            var result = GetById(category.CategoryID);
                 
             if(result!=null)
             {

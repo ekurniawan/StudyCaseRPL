@@ -87,16 +87,19 @@ namespace StudyCaseRPL.Controllers
         // GET: Categories/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            CategoriesDAL categoriesDAL = new CategoriesDAL();
+            var model = categoriesDAL.GetById(id);
+            return View(model);
         }
 
         // POST: Categories/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Category category)
         {
             try
             {
-                // TODO: Add delete logic here
+                CategoriesDAL categoriesDAL = new CategoriesDAL();
+                categoriesDAL.Delete(category);
 
                 return RedirectToAction("Index");
             }
