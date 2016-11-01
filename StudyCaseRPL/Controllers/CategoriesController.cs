@@ -8,7 +8,7 @@ using StudyCaseRPL.DAL;
 using StudyCaseRPL.Models;
 
 namespace StudyCaseRPL.Controllers
-{//keterangan pertama
+{
 
     public class CategoriesController : Controller
     {
@@ -19,6 +19,12 @@ namespace StudyCaseRPL.Controllers
             var models = catDal.GetAll();
 
             return View(models);
+        }
+
+        public ActionResult SearchByNama()
+        {
+            
+            return View();
         }
 
         // GET: Categories/Details/5
