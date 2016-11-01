@@ -8,7 +8,8 @@ using StudyCaseRPL.DAL;
 using StudyCaseRPL.Models;
 
 namespace StudyCaseRPL.Controllers
-{
+{//keterangan pertama
+
     public class CategoriesController : Controller
     {
         // GET: Categories
